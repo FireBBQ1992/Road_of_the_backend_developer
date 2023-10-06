@@ -1,5 +1,6 @@
 # Markdown_Learning
-Begin to start learing how to write Readme.md
+
+學習如何撰寫 README.md
 
 # 標題
 
@@ -13,10 +14,8 @@ Begin to start learing how to write Readme.md
 ###### 標題六
 ```
 
-例子:
+例子(因排版因素沒有"標題一"和"標題二"):
 
-# 標題一
-## 標題二
 ### 標題三
 #### 標題四
 ##### 標題五
