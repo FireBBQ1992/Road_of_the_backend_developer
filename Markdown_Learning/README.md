@@ -1,33 +1,48 @@
 # Markdown_Learning
 
-- 使用 Markdown 學習撰寫 README.md
+> 使用 Markdown 學習撰寫 README.md
+
+
 
 主標題
 ===
+> 標題語法
 ```
 主標題
 ===
 ```
 
 
-# 字體大小
-
-依據 *井字號(#)* 的多寡變更標題大小
+副標題
+---
+> 副標語法
 ```
-# 標題一
-## 標題二
-### 標題三
-#### 標題四
-##### 標題五
-###### 標題六
+副標題
+---
 ```
 
-例子 (因排版因素無"標題一"和"標題二"):
 
-### 標題三
-#### 標題四
-##### 標題五
-###### 標題六
+字體大小
+---
+> 依據 *井字號(#)* 的多寡變更標題大小
+# 字體一
+## 字體二
+### 字體三
+#### 字體四
+##### 字體五
+###### 字體六
+```
+# 字體一
+## 字體二
+### 字體三
+#### 字體四
+##### 字體五
+###### 字體六
+```
+
+
+字體效果
+---
 
 
 # 內文
@@ -113,4 +128,4 @@
 
 Reference
 ---
-:hatching_chick: [MarkDown語法大全](https://hackmd.io/@eMP9zQQ0Qt6I8Uqp2Vqy6w/SyiOheL5N/%2FBVqowKshRH246Q7UDyodFA?type=book)
+[MarkDown語法大全](https://hackmd.io/@eMP9zQQ0Qt6I8Uqp2Vqy6w/SyiOheL5N/%2FBVqowKshRH246Q7UDyodFA?type=book)
