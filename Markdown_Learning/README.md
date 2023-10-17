@@ -2,7 +2,15 @@
 
 - 使用 Markdown 學習撰寫 README.md
 
-# 標題
+主標題
+===
+```
+主標題
+===
+```
+
+
+# 字體大小
 
 依據 *井字號(#)* 的多寡變更標題大小
 ```
@@ -101,3 +109,8 @@
 
 
 [以相對路徑引用文件](../blob/master/LICENSE)
+
+
+Reference
+---
+:hatching_chick: [MarkDown語法大全](https://hackmd.io/@eMP9zQQ0Qt6I8Uqp2Vqy6w/SyiOheL5N/%2FBVqowKshRH246Q7UDyodFA?type=book)
