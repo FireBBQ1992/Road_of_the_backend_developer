@@ -27,6 +27,26 @@ print(a / b)    # 26.75
 # print ('%d %% %d = %d' % (a, b, a % b))
 # print ('%d ** %d = %d' % (a, b, a ** b))
 
-f = float(input('f = '))
-c = (f - 32) / 1.8
-print ("%.1f 華氏溫度= %.1f 攝氏溫度" % (f, c))
+
+# """
+# 將華氏溫度轉換為攝氏溫度
+
+# Version: 0.1
+# Author: Johnson
+# """
+# f = float(input('f = '))
+# c = (f - 32) / 1.8
+# print ("%.1f 華氏溫度= %.1f 攝氏溫度" % (f, c))
+
+
+"""
+輸入半徑計算圓的周長和麵積
+
+Version: 0.1
+Author: Johnson
+"""
+radius = float(input('請輸入圓的半徑: '))
+perimeter = 2 * 3.1416 * radius
+area = radius * radius * 3.1416 
+print('周長: %.2f' % perimeter)
+print('面積: %.2f' % area)
