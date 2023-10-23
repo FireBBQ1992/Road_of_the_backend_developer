@@ -39,14 +39,23 @@ print(a / b)    # 26.75
 # print ("%.1f 華氏溫度= %.1f 攝氏溫度" % (f, c))
 
 
-"""
-輸入半徑計算圓的周長和麵積
+# """
+# 輸入半徑計算圓的周長和麵積
 
+# Version: 0.1
+# Author: Johnson
+# """
+# radius = float(input('請輸入圓的半徑: '))
+# perimeter = 2 * 3.1416 * radius
+# area = radius * radius * 3.1416 
+# print('周長: %.2f' % perimeter)
+# print('面積: %.2f' % area)
+
+
+"""
+輸入年分，如果是閏年的為 True，不是則為 Fail
 Version: 0.1
 Author: Johnson
 """
-radius = float(input('請輸入圓的半徑: '))
-perimeter = 2 * 3.1416 * radius
-area = radius * radius * 3.1416 
-print('周長: %.2f' % perimeter)
-print('面積: %.2f' % area)
+years= int(input("請輸入年分 :"))
+if (  )
