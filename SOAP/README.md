@@ -31,10 +31,10 @@
 
  ## 規則
  - 需使用 XML 進行編碼
- -  SOAP 消息必須使用 Envelope 命名空間
- -  SOAP 消息必須使用 Encoding 命名空間
- -  SOAP 消息不能包含 DTD 引用
- -  SOAP 消息不能包含 XML 處理指令
+ -  SOAP 消息<font color=#008000>必須</font>使用 Envelope 命名空間
+ -  SOAP 消息<font color=#008000>必須</font>使用 Encoding 命名空間
+ -  SOAP 消息<font color=#FF0000>不能</font>包含 DTD 引用
+ -  SOAP 消息<font color=#FF0000>不能</font>包含 XML 處理指令
 
  ### 基本結構
  ```
@@ -59,9 +59,35 @@ soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
 
 
 ## SOAP Envelope 元素
+> 主要為 SOAP 的 <font color=#00FFFF> 根元素 </font>
+
+例子：
+```
+<?xml version="1.0"?>
+<soap:Envelope
+xmlns:soap="http://www.w3.org/2001/12/soap-envelope"
+soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
+  ...
+  Message information goes here
+  ...
+</soap:Envelope>
+```
+### xmlns: SOAP 的命名空間
+> SOAP 訊息必須擁有一個與命名空間 "http://www.w3.org/2001/12/soap-envelope" 相關聯的一個 ? Envelope 元素。
+如果使用了不同的命名空間，應用程式會發生錯誤，並拋棄此訊息。
+
+### encodingStyle 屬性
+> encodingStyle 應用於定義在文檔中使用的數據類型，此屬性可出現在任何SOAP 元素中，應用到元素的內容及元素的所有子元素上
+
+語法
+```
+soap:encodingStyle="Test for encodingStyle element"
+```
 
 
 ## SOAP Header 元素
+
+
 
 ## SOAP Body 元素
 
