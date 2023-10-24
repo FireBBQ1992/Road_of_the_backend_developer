@@ -58,4 +58,9 @@ Version: 0.1
 Author: Johnson
 """
 years= int(input("請輸入年分 :"))
-if (  )
+if years % 4 == 0 and  years % 100 != 0 :
+    print ("%d 為潤年" %years)
+elif years % 4 == 0 and  years % 100 != 0 or years % 400 == 0 :
+    print ("%d 為潤年" %years)
+else:
+    print ("%d 為平年" %years)

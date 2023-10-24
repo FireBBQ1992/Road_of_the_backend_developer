@@ -12,6 +12,11 @@
 -  布林值:只有 `True`、`False` 兩種值。
 -  複數：形如3+5j，跟數學上的複數表示一樣，唯一不同的是虛部的i換成了j。實際上，這個型別並不常用。
 
+## 分支結構
+### if語句的使用
+- 構造分支結構可以使用 `if`、`elif`和`else`關鍵字
+- 與C/C++、Java等語言不同, Python中沒有用花括號來構造程式碼塊而是**使用了縮排的方式來表示程式碼的層次結構**
+
 
 ## Reference
  [Python-100-Days](https://github.com/ateliershen/Python-100-Days-zh_TW) 
