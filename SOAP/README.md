@@ -86,7 +86,84 @@ soap:encodingStyle="Test for encodingStyle element"
 
 
 ## SOAP Header 元素
+> 可選的 SOAP Header 元素包含關於應用專用的訊息(例：認證、支付...等)
+例子
+```
+<?xml version="1.0"?>
+<soap:Envelope
+xmlns:soap="http://www.w3.org/2001/12/soap-envelope"
+soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
 
+<soap:Header>
+  <m:Trans xmlns:m="http://www.w3schools.com/transaction/"
+  soap:mustUnderstand="1">234
+  </m:Trans>
+</soap:Header>
+...
+...
+</soap:Envelope>
+```
+從以上 SOAP 命名空間中可知有定義了三種屬性，分別如下 
+
+### mustUnderstand 属性
+> 提供安全標籤給接收者，當 Header 元素的某個子元素添加了 mustUnderstand="1", 代表已提供處理頭部的接收者安全標籤
+
+語法
+```
+soap:mustUnderstand="0|1"
+```
+
+例子
+```
+<?xml version="1.0"?>
+<soap:Envelope
+xmlns:soap="http://www.w3.org/2001/12/soap-envelope"
+soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
+
+<soap:Header>
+  <m:Trans xmlns:m="http://www.w3schools.com/transaction/"
+  soap:mustUnderstand="1">234
+  </m:Trans>
+</soap:Header>
+...
+...
+</soap:Envelope>
+```
+
+### actor 属性
+> 1. 此屬性可於將Header 元素尋址到一個特定端點
+> 2. SOAP 消息可發送至某個接收者，中途可能會經過不同的端點且並非傳送到最終端點，它也有可能尋址到特定的端點中
+
+語法
+```
+soap:actor="URI"
+```
+
+例子
+```
+<?xml version="1.0"?>
+<soap:Envelope
+xmlns:soap="http://www.w3.org/2001/12/soap-envelope"
+soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
+
+<soap:Header>
+  <m:Trans xmlns:m="http://www.w3schools.com/transaction/"
+  soap:actor="http://www.w3schools.com/appml/">234
+  </m:Trans>
+</soap:Header>
+...
+...
+</soap:Envelope>
+```
+
+
+### encodingStyle 属性
+> 主要用於定義在文檔中使用的數據類型，可出現在任何 SOAP 元素並應用於元素的內容或是所有的子元素上。
+
+語法
+```
+soap:encodingStyle="URI"
+```
 
 
 ## SOAP Body 元素
