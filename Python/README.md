@@ -40,7 +40,29 @@ range的用法非常靈活，下面給出了一個例子：
 - range(100, 0, -2)：可以用來產生100到1的偶數，其中-2是步長，即每次數字遞減的值。
 
 ### while 迴圈
+- 當構造不知道具體迴圈次數的迴圈結構時，可使用 While 迴圈來判別
+- while迴圈透過一個能夠產生或轉換出`bool值` 的表示式來控制迴圈，表示式的值為 `True` 則繼續迴圈；表示式的值為 `False` 則結束迴圈
 
+例子
+```
+import random
+
+answer = random.randint(1, 100)
+counter = 0
+while True:
+    counter += 1
+    number = int(input('請輸入: '))
+    if number < answer:
+        print('大一點')
+    elif number > answer:
+        print('小一點')
+    else:
+        print('恭喜你猜對了!')
+        break
+print('你總共猜了%d次' % counter)
+if counter > 7:
+    print('你的智商餘額明顯不足')
+```
 
 
 ## Reference

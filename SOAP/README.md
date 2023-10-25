@@ -103,7 +103,7 @@ soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
 ...
 </soap:Envelope>
 ```
-從以上 SOAP 命名空間中可知有定義了三種屬性，分別如下 
+從以上 SOAP 命名空間中可知有定義了三種屬性，分別如下 :
 
 ### mustUnderstand 属性
 > 提供安全標籤給接收者，當 Header 元素的某個子元素添加了 mustUnderstand="1", 代表已提供處理頭部的接收者安全標籤
@@ -167,8 +167,51 @@ soap:encodingStyle="URI"
 
 
 ## SOAP Body 元素
+> 包含傳送到最終端點的 SOAP 消息
+
+例子
+```
+<?xml version="1.0"?>
+<soap:Envelope
+xmlns:soap="http://www.w3.org/2001/12/soap-envelope"
+soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
+
+<soap:Body>
+  <m:GetPrice xmlns:m="http://www.w3schools.com/prices">
+    <m:Item>Apples</m:Item>
+  </m:GetPrice>
+</soap:Body>
+
+</soap:Envelope>
+```
+
 
 ## SOAP Fault 元素
+> 用於存留 SOAP 消息的錯誤資訊和狀態訊息 
+
+
+
+
+
+有以下規則
+- 必須是 Body 元素的子元素
+- 一條 SOAP 消息中，Fault 元素只能出現一次
+- 以下為 Fault 元素所擁有的子元素：
+  
+  | 子元素 | 描述 |
+  | ----- | ---- |
+  | `<faultcode>`	| 提供識別故障的代碼 |
+  | `<faultstring>` | 提供故障敘述 |
+  | `<faultactor>` | 提供是誰引發故障的訊息 |
+  | `<detail>` | 提供涉及到 body 元素的應用程式錯誤資訊 |
+
+- 定義 faultcode 值必須用於描述錯誤時的 faultcode 元素中：
+  | 錯誤 | 描述 |
+  | ---- | --- |
+  | VersionMismatch |  |
+  | MustUnderstand |  |
+  | Client |  |
+  | Server |  |
 
 
 
