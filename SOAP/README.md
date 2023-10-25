@@ -189,10 +189,6 @@ soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
 ## SOAP Fault 元素
 > 用於存留 SOAP 消息的錯誤資訊和狀態訊息 
 
-
-
-
-
 有以下規則
 - 必須是 Body 元素的子元素
 - 一條 SOAP 消息中，Fault 元素只能出現一次
@@ -208,10 +204,14 @@ soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
 - 定義 faultcode 值必須用於描述錯誤時的 faultcode 元素中：
   | 錯誤 | 描述 |
   | ---- | --- |
-  | VersionMismatch |  |
-  | MustUnderstand |  |
-  | Client |  |
-  | Server |  |
+  | VersionMismatch | 發現 SOAP Envelope 元素有無效命名  |
+  | MustUnderstand | Header 元素的一個子元素無法被理解 |
+  | Client | 消息沒有正確的構成，或是有包含不正確的訊息 |
+  | Server | 伺服器有問題，無法進行處理下去 |
+
+
+## SOAP HTTP 協議
+> HTTP 在 TCP/IP 上進行通訊
 
 
 
