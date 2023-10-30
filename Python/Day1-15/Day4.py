@@ -23,18 +23,75 @@ Author: Johnson
 Version: 0.1
 Author: Johnson
 """
+
 # x = int(input('x = '))
 # y = int(input('y = '))
-# # 如果x大於y就交換x和y的值
+
 # if x > y:
-#     # 透過下面的操作將y的值賦給x, 將x的值賦給y
 #     x, y = y, x
-# # 從兩個數中較小的數開始做遞減的迴圈
 # for factor in range(x, 0, -1):
 #     if x % factor == 0 and y % factor == 0:
-#         print('%d和%d的最大公約數是%d' % (x, y, factor))
-#         print('%d和%d的最小公倍數是%d' % (x, y, x * y // factor))
+#         print ("x : %d 和 y : %d 的最大公因數為 %d " %(x, y, factor) )
+#         print ("x : %d 和 y : %d 的最小公倍數為 %d " %(x, y, x * y // factor ) )
 #         break
 
 
-    
+
+"""
+練習3：列印如下所示的三角形圖案。
+=============================
+*
+**
+***
+****
+*****
+=============================
+    *
+   **
+  ***
+ ****
+*****
+=============================
+    *
+   ***
+  *****
+ *******
+*********
+=============================
+Version: 0.1
+Author: Johnson
+"""
+row = int(input("請輸入行數 : "))
+
+for i in range(row):
+    for _ in range(i + 1):
+        print ("*", end="")
+    print ()
+
+print ("=======================")
+
+#優化前
+# for i in range(row):
+#     for _ in range(row - i - 1 ):
+#         print (" ", end="")
+#     for _ in range(i + 1):
+#         print ("*", end="")
+#     print ()
+
+#優化後
+# for i in range(row):
+#     for j in range(row):
+#         if j < row -i -1:
+#             print (" ", end="")
+#         else :
+#             print ("*", end="")
+#     print ()
+
+print ("=======================")
+
+# for i in range(row):
+#     for _ in range(row - i - 1):
+#         print (" ", end="")
+#     for _ in range(2 * i + 1): 
+#         print ("*", end="")
+#     print ()

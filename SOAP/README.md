@@ -211,7 +211,7 @@ soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
 
 
 ## SOAP HTTP 協議
-> HTTP 在 TCP/IP 上進行通訊
+> HTTP 在 TCP/IP 上進行通訊, 
 
 
 

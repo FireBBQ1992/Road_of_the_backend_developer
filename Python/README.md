@@ -64,6 +64,48 @@ if counter > 7:
     print('你的智商餘額明顯不足')
 ```
 
+## 構造程式邏輯
+> 介紹一些經典的案例及習題，來了解如何建立程式中的邏輯以及如何運用一些簡單的演算法
+
+```
+
+# 找出所有水仙花數
+# 說明 : 水仙花數也被稱為超完全數字不變數、自戀數、自冪數、阿姆斯特朗數，它是一個3位數，該數字每個位上數字的立方之和正好等於它本身，例如：$1^3 + 5^3+ 3^3=153$。
+
+for num in range(100, 1000):
+    low = num % 10
+    mid = num // 10 % 10
+    high = num // 100
+    if num == low ** 3 + mid ** 3 + high ** 3:
+        print(num)
+```
+
+```
+# 正數反轉
+# 說明 : 輸入一個數，可將此數做反轉，
+
+num = int(input('num = '))
+reversed_num = 0
+while num > 0:
+    reversed_num = reversed_num * 10 + num % 10
+    num //= 10
+print(reversed_num)
+```
+
+```
+#《百錢百雞》問題
+# 說明 :《 算經》一書中提出的數學問題：雞翁一值錢五，雞母一值錢三，雞雛三值錢一。百錢買百雞，問雞翁、雞母、雞雛各幾何？翻譯成現代文是：公雞5元一隻，母雞3元一隻，小雞1元三隻，用100塊錢買一百隻雞，問公雞、母雞、小雞各有多少隻？
+
+# 提示 : 這裡主要是使用窮舉法
+
+for x in range(0, 20):
+    for y in range(0, 33):
+        z = 100 - x - y
+        if 5 * x + 3 * y + z / 3 == 100:
+            print('公雞: %d只, 母雞: %d只, 小雞: %d只' % (x, y, z))
+
+```
+
 
 ## Reference
  [Python-100-Days](https://github.com/ateliershen/Python-100-Days-zh_TW) 
