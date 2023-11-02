@@ -106,6 +106,92 @@ for x in range(0, 20):
 
 ```
 
+## 函數與模組的使用
+- 程式碼有很多種壞味道，重複是最壞的一種！ ------ Martin Fowler
+- 可將重複程式碼的問題，封裝到一個稱之為“函式”的功能模組中。
+- 可以使用 `def` 關鍵字來定義函式。
+- 函式名後面的圓括號 `( )` 中可以放置傳遞給函式的引數。
+- 函式執行完成後我們可以透過 `return` 關鍵字來返回一個值。
+
+
+### 定義涵式
+
+例子：
+```
+
+#輸入M和N計算C(M,N)
+def fac(num):
+    """求階乘"""
+    result = 1
+    for n in range(1, num + 1):
+        result *= n
+    return result
+
+m = int(input('m = '))
+n = int(input('n = '))
+# 當需要計算階乘的時候不用再寫迴圈求階乘而是直接呼叫已經定義好的函式
+print(fac(m) // fac(n) // fac(m - n))
+```
+> 說明 :
+> - Python的 `math` 模組中其實已經有一個名為 `factorial` 函式實現了階乘運算，事實上求階乘並不用自己定義函式。
+> - 實際開發中並不建議做這種低階的重複勞動。
+
+### 涵式的引數
+- Python 中，函式的引數可以有預設值，也支援使用可變引數。
+- 定義一個函式的時候可以讓它有多種不同的使用方式，下列為例子。
+
+```
+from random import randint
+
+
+def roll_dice(n=2):
+    """搖色子"""
+    total = 0
+    for _ in range(n):
+        total += randint(1, 6)
+    return total
+
+
+def add(a=0, b=0, c=0):
+    """三個數相加"""
+    return a + b + c
+
+
+# 如果沒有指定引數那麼使用預設值搖兩顆色子
+print(roll_dice())
+# 搖三顆色子
+print(roll_dice(3))
+print(add())
+print(add(1))
+print(add(1, 2))
+print(add(1, 2, 3))
+# 傳遞引數時可以不按照設定的順序進行傳遞
+print(add(c=50, a=100, b=200))
+```
+
+- 以上 `add` 涵式例子有更好的實現方案，因為我們可能會對多個引數進行加法運算。
+- 可使用可變引數，方法如下：
+
+```
+# 在引數名前面的*表示args是一個可變引數
+def add(*args):
+    total = 0
+    for val in args:
+        total += val
+    return total
+
+
+# 在呼叫add函式時可以傳入0個或多個引數
+print(add())
+print(add(1))
+print(add(1, 2))
+print(add(1, 2, 3))
+print(add(1, 3, 5, 7, 9))
+```
+
+### 模塊管理涵式
+
+- 可能會遇到命名衝突的問題。
 
 ## Reference
  [Python-100-Days](https://github.com/ateliershen/Python-100-Days-zh_TW) 
