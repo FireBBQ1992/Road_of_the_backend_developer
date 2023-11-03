@@ -192,6 +192,108 @@ print(add(1, 3, 5, 7, 9))
 ### 模塊管理涵式
 
 - 可能會遇到命名衝突的問題。
+- 如果同一個文件中有兩個同名的模塊，後者定義的模塊將會覆蓋前者，以下為例子
+
+`only_one_module.py`
+```
+def foo():
+    print('hello, world!')
+
+
+def foo():
+    print('goodbye, world!')
+
+# goodbye, world!
+foo()
+```
+
+- 解法一. 使用不同文件編寫
+
+`module1.py`
+
+```
+def foo():
+    print('hello, world!')
+
+```
+
+`module2.py`
+
+```
+def foo():
+    print('hello, world!')
+
+```
+
+`test_module1_and_module2.py`
+
+```
+from module1 import foo
+
+# hello, world!
+foo()
+
+from module2 import foo
+
+# goodbye, world!
+foo()
+```
+
+- 也可用自定義名稱的方式區分
+
+```
+import module1 as m1
+import module2 as m2
+
+m1.foo()
+m2.foo()
+```
+
+- 但如果自定義相同名稱，也是後者覆蓋前者
+
+```
+from module1 import foo
+from module2 import foo
+
+# goodbye, world!
+foo()
+```
+
+```
+from module2 import foo
+from module1 import foo
+
+# hello, world!
+foo()
+```
+
+- [重要] 當我們引用模塊時，可能會引用到模塊所執行的代碼，但我們可以使用 `if __name__ == '__main__':` 來解決此問題
+
+```
+def foo():
+    pass
+
+
+def bar():
+    pass
+
+
+# __name__是Python中一个隐含的变量它代表了模块的名字
+# 只有被Python解释器直接执行的模块的名字才是__main__
+if __name__ == '__main__':
+    print('call foo()')
+    foo()
+    print('call bar()')
+    bar()
+```
+
+```
+import module3
+
+# 导入module3时 不会执行模块中if条件成立时的代码 因为模块的名字是module3而不是__main__
+
+```
+
 
 ## Reference
  [Python-100-Days](https://github.com/ateliershen/Python-100-Days-zh_TW) 

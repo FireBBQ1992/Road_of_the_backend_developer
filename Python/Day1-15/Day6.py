@@ -1,10 +1,5 @@
-def foo():
-    print('123, world!')
+def gcd(x,y):
+    132
 
-
-def foo():
-    print('hello, world!')
-
-
-# 下面的程式碼會輸出什麼呢？
-foo()
+def lcm(x, y):
+    123
