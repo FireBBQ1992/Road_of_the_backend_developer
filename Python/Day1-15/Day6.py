@@ -3,3 +3,5 @@ def gcd(x,y):
 
 def lcm(x, y):
     123
+
+#mac
