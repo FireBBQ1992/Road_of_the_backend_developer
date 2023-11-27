@@ -8,8 +8,8 @@
 # def lcm(x, y):
 #     return x * y // gcd(x, y)
 
-def is_palindrome(num):
-    print ("")
+# def is_palindrome(num):
+#     print ("")
 
 
 #if __name__ == '__main__':
@@ -19,4 +19,3 @@ def is_palindrome(num):
 
 
 
-#練習二
