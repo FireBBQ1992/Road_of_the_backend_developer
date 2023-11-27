@@ -16,3 +16,4 @@ if __name__ == '__main__':
     x = int(input('請輸入第一個數字 :'))
     y = int(input('請輸入第二個數字 :'))
     print ("%d 和 %d 的最大公因數為 %d , 最小公倍數為 %d" %(x,y, gcd(x,y), lcm(x,y)))
+    
