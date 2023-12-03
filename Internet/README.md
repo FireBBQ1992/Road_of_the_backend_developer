@@ -81,6 +81,17 @@
 - 1. 排版引擎(Layout engine)主要將網頁的 HTML 和其他資源和其他資源轉換為用戶設備上和其他資源轉換為用戶設備上的交互式視覺表示
 - 2. JavaScript 引擎是專門處理 Javascript 程式碼的虛擬機器
 
+## 何謂 W3C?
+
+- 全球資訊網協會 (World Wide Web Consortium)，是全球資訊網的主要國際標準組織
+- 為解決網路應用中不同平台、技術和開發者帶來的不相容問題，保障網路流通得順利完整，全球資訊網協會制定了一系列標準並督促網路應用開發者和內容提供者遵循這些標準
+- 以下為 W3C 所制定的標準 :
+  - HTML
+  - CSS
+  - DOM
+  - SVG
+  - XML
+
 ## Reference
 
 [網路基本概要](http://www.greatbooks.com.tw/backend/news/test_pdf/580.pdf)
