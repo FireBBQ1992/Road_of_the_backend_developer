@@ -68,6 +68,19 @@
 - HTTP 是用於在 Web 瀏覽器和網站之間傳送資料的主要通訊協定, HTTPS 經過加密，以提高資料傳輸的安全性
 - HTML, CSS 及 JavaScript 為傳輸文件的三大要素
 
+## 何謂 DNS？
+
+- 網路名稱系統 (Domain Name Servers), 它是轉換 IP 與 URL 的服務
+- 瀏覽器會在取得網站之前，他會去看 DNS 來尋找託管網站的伺服器
+- 瀏覽器會向伺服器傳送 http 請求．伺服器就會傳送 200 OK，並開始傳遞給瀏覽器資料封包
+- 瀏覽器會將資料封包整合成完整的網站
+
+## 何謂瀏覽器？
+
+- 網頁瀏覽器有兩個主要功能
+- 1. 排版引擎(Layout engine)主要將網頁的 HTML 和其他資源和其他資源轉換為用戶設備上和其他資源轉換為用戶設備上的交互式視覺表示
+- 2. JavaScript 引擎是專門處理 Javascript 程式碼的虛擬機器
+
 ## Reference
 
 [網路基本概要](http://www.greatbooks.com.tw/backend/news/test_pdf/580.pdf)
