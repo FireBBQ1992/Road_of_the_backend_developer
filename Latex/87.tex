@@ -1,0 +1,333 @@
+\usepackage{amsmath,amssymb,gensymb,bm,fancyhdr,braket,mathrsfs}
+\usepackage{multirow,multicol,ifthen,array,harpoon}
+\usepackage{systeme,fancybox,times}
+\usepackage{indentfirst,verbatim,subfigure,slashbox}  
+\usepackage{url,booktabs,setspace,eso-pic,cellspace,scalerel}
+\usepackage{makecell}
+\usepackage{setspace}   % Set space between lines.
+\usepackage{xspace}     % Define commands that appear not to eat spaces.
+\usepackage{fontspec} %加這個就可以設定字體
+\usepackage{xeCJK} %讓中英文字體分開設置
+\setCJKmainfont{NotoSansTC-Regular.ttf}
+\XeTeXlinebreaklocale "zh" 
+\XeTeXlinebreakskip = 0pt plus 1pt
+\usepackage{enumerate} %選擇題
+\usepackage{amsfonts,amsthm,textcomp,tabularx,accents,extpfeil}
+\usepackage{color} 
+\usepackage{hyperref,afterpage}
+\usepackage{framed}
+\usepackage{enumitem}
+\usepackage{varwidth}
+\usepackage{hhline}%繪製特殊表格線
+\usepackage{colortbl}%製作彩色表格
+\usepackage{xcolor}%定義表格顏色
+\usepackage{empheq}
+\usepackage{graphicx}
+	\definecolor{hellmagenta}{rgb}{1,0.75,0.9}
+	\definecolor{hellcyan}{rgb}{0.75,1,0.9}
+	\definecolor{hellgelb}{rgb}{1,1,0.8}
+	\definecolor{colKeys}{rgb}{0,0,1}
+	\definecolor{colIdentifier}{rgb}{0,0,0}
+	\definecolor{colComments}{rgb}{1,0,0}
+	\definecolor{colString}{rgb}{0,0.5,0}
+	\definecolor{darkyellow}{rgb}{1,0.9,0}
+	\definecolor{myblue}{RGB}{80,80,160}
+	\definecolor{mygreen}{RGB}{80,160,80}
+	\definecolor{shadecolor}{rgb}{0.87,0.87,0.87} 
+	\def\xstrut{\vphantom{\dfrac{(A)^1}{(B)^1}}}
+%\graphicspath{C:/Users/s0961/Desktop/自編講義}
+\usepackage{qrcode}
+
+% for drawing graphs
+%\usepackage{tkz-fct,tikz-cd,pst-solides3d}
+\usepackage{tikz,tkz-euclide,pst-eucl,pgf,pgfplots}
+\usetikzlibrary{shapes,shapes.geometric}
+\usetikzlibrary{decorations.markings,decorations.pathmorphing}
+\usetikzlibrary{positioning,chains,fit,calc,intersections,tikzmark,through}
+\usetikzlibrary{arrows,arrows.meta,automata,datavisualization,datavisualization.formats.functions}
+\usetikzlibrary{graphs,graphs.standard,3d,perspective}
+
+\tikzset{every picture/.style={thick}}
+\tikzset{arrowMe/.style={postaction=decorate,decoration={markings, mark=at position .5 with {\arrow[thick]{#1}}}}}
+
+
+
+\usepgfplotslibrary{polar}
+\usepgflibrary{shapes.geometric}
+\usepackage{forest}
+\forestset{
+  my tree/.style={
+    before typesetting nodes={
+      for tree={
+        if={>O+tt=!O_=&{content}{}{n}{1}}{
+          label/.process={Ow}{content}{left:##1},
+        }{
+          label/.process={Ow}{content}{right:##1},
+       },
+        content=,
+      },
+    },
+    where level=0{
+      draw,
+      baseline,
+      circle,
+    }
+    {
+      draw,
+      fill,
+      circle,
+    },
+    for tree={inner sep=1.5pt, s sep'+=10pt},
+  },
+  default preamble={my tree},
+  cut/.style={
+    tikz+={
+      \path [decorate, decoration={markings, mark=at position .5 with {\draw [] +(90:2.5pt) -- +(-90:2.5pt);}}] ()  -- (!u);
+    }
+  }
+}
+\thispagestyle{empty}
+\pgfplotsset{my style/.append style={axis x line=middle, axis y line=
+middle, xlabel={$x$}, ylabel={$y$}, axis equal }}
+
+\newcommand{\mybox}[4][\textwidth-\pgfkeysvalueof{/pgf/inner xsep}-2mm]{%
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}
+\node[line width=.5mm, rounded corners, draw=#2, inner ysep=10pt, text width=#1, outer sep=0] (one) {\vspace*{15pt}\\\begin{varwidth}{\textwidth}#4\end{varwidth}};
+\node[text=white,anchor=north east,align=center, minimum height=20pt] (two) at (one.north east) {#3 \hspace*{.5mm}};
+\path[fill=#2]
+    (one.north west|-two.west) --
+    ($(two.west)+(-1.5cm,0)$)
+    to[out=0,in=180] (two.south west) --
+    (two.south east) [rounded corners] --
+    (one.north east) --
+    (one.north west) [sharp corners] -- cycle;
+\node[text=white,anchor=north east,align=center, minimum height=20pt, text height=2ex] (three) at (one.north east) {#3 \hspace*{.5mm}};
+\end{tikzpicture}
+\end{figure}
+}
+
+\usepackage[most]{tcolorbox}
+% user defined color
+\usepackage{xcolor}
+\definecolor{observecolor}{RGB}{153,201,227}
+\definecolor{explorecolor}{RGB}{178,217,200}
+
+\tcbset{
+    common/.style={
+		enhanced,
+		arc=0mm,
+		fonttitle=\large\bfseries,
+		coltitle=black,
+		attach boxed title to top left={xshift=0mm,
+										yshift=-0.50mm},
+		boxed title style={
+			skin=enhancedfirst jigsaw,
+			size=small,
+			arc=5mm,
+			bottom=0mm,
+			left=8mm,
+			right=18mm,
+			top=1mm},
+			boxrule=0pt,
+			frame hidden},
+	observestyle/.style={
+		common,
+		colbacktitle=observecolor,
+		colframe=observecolor,
+		colback=observecolor!40,
+		borderline north={4pt}{0pt}{observecolor}}
+}
+
+\newtcolorbox{observe}{observestyle,title=小試身手}
+\newtcolorbox{custom}[2][gray]{
+	common,
+	title=#2,
+	colbacktitle=#1,
+	colframe=#1,
+	colback=#1!40,
+	borderline north={4pt}{0pt}{#1}}
+
+
+\usepackage[most]{tcolorbox}
+% user defined color
+\usepackage{xcolor}
+\definecolor{observecolor}{RGB}{153,201,227}
+\definecolor{explorecolor}{RGB}{178,217,200}
+
+\tcbset{
+    common/.style={
+		enhanced,
+		arc=0mm,
+		fonttitle=\large\bfseries,
+		coltitle=black,
+		attach boxed title to top left={xshift=0mm,
+										yshift=-0.50mm},
+		boxed title style={
+			skin=enhancedfirst jigsaw,
+			size=small,
+			arc=5mm,
+			bottom=0mm,
+			left=8mm,
+			right=18mm,
+			top=1mm},
+			boxrule=0pt,
+			frame hidden},
+	observestyle/.style={
+		common,
+		colbacktitle=observecolor,
+		colframe=observecolor,
+		colback=observecolor!40,
+		borderline north={4pt}{0pt}{observecolor}}
+}
+
+\newtcolorbox{observing}{observestyle,title=小試身手}
+\newtcolorbox{customs}[2][brown]{
+	common,
+	title=#2,
+	colbacktitle=#1,
+	colframe=#1,
+	colback=#1!40,
+	borderline north={4pt}{0pt}{#1}}
+\tcbuselibrary{skins,breakable,theorems}	
+
+\makeatletter\long\def\ifnodedefined#1#2{\@ifundefined{pgf@sh@ns@#1}{}{#2}}\makeatother
+\tikzset{
+    %line-styles
+        OO/.style={fill=blue,draw=blue,{Circle[width=1mm,length=1mm]}-{Circle[width=1mm,length=1mm]},shorten <= -0.5mm,shorten >= -0.5mm}, <O/.style={stealth-{Circle[width=1mm,length=1mm]},shorten <= 0mm}, O>/.style={{Circle[width=1mm,length=1mm]}-stealth,shorten >= 0mm}, <OO>/.style={stealth-stealth,shorten <= 0mm,shorten >= 0mm},every edge/.append style={OO},
+    %how to plot:
+        pics/.cd, plot inequality/.code n args={4}{
+        %all the paths we need to figure out the intersections etc.
+            \path[name path=conditionline] plot[variable=\x,domain={#2*1.01}:{#3*1.01},samples=300] ({\x},{ifthenelse(#1,{1+#4},{-1+#4})}); \path[name path=zeroline] (#2,#4) -- (#3,#4);\path[name path=start] (#2,{#4+1.1}) -- (#2,{#4+.9});\path[name path=end] (#3,{#4+1.1}) -- (#3,{#4+0.9});\path[name intersections={of=conditionline and start,name=startt}];\path[name intersections={of=conditionline and end,name=endd}];\path[name intersections={of=conditionline and zeroline,name=zerolinee}];\coordinate (intersection-0) at (#2,#4);
+        %draw lines, nots and arrows
+            \ifnum0\ifnodedefined{zerolinee-1}{1}\ifnodedefined{startt-1}{1}>0\draw[name intersections={of=zeroline and conditionline,total=\t,by=x}]\foreach \i [count=\s, evaluate=\s as \startswitch using iseven(\s+0\ifnodedefined{startt-1}{1})] in {0,...,{\t}}{\ifnum\i=\t coordinate (intersection-\s) at (#3,#4)\fi\if1\startswitch(intersection-\i) edge [\ifnodedefined{startt-1}{\ifnum\i=0<O\fi}\ifnodedefined{endd-1}{\ifnum\i=\t O>\fi}] (intersection-\s)\fi};\pgfnoderename{}{startt-1}\pgfnoderename{}{endd-1}\pgfnoderename{}{zerolinee-1}\fi}
+}
+
+
+% for margins
+\usepackage[top=2.5cm,bottom=2.5cm,left=2cm,right=2cm,a4paper]{geometry}
+
+
+% 表格高度及長內容換行
+\newcommand{\xrowht}[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+
+%\setlength{\parindent}{2em}
+% MACROS
+\newenvironment{sol}{\medskip\noindent {\bf Solution.}}{\newpage}
+\newcommand{\mystrut}{\rule[-.5\baselineskip]{0pt}{2\baselineskip}}
+\newcommand{\divisible}{\mathrel{|}}
+\newcommand{\bx}{{\bf x}}
+\newcommand{\trans}{^\top}
+\newcommand{\id}[1]{\ensuremath{\,\mathrm{d} #1}\xspace}
+\newcommand{\eva}[1]{\ensuremath{\left.#1\right|}\xspace}
+\newcommand{\ppair}[1]{\ensuremath{\left(#1\right)}\xspace}
+\newcommand{\apair}[1]{\ensuremath{\left\langle#1\right\rangle}\xspace}
+\newcommand{\bpair}[1]{\ensuremath{\left[#1\right]}\xspace}
+\newcommand{\cpair}[1]{\ensuremath{\left\lceil #1\right\rceil}\xspace}
+\newcommand{\fpair}[1]{\ensuremath{\left\lfloor #1\right\rfloor}\xspace}
+\newcommand{\Bpair}[1]{\ensuremath{\left\{#1\right\}}\xspace} 
+\newcommand{\vpair}[1]{\ensuremath{\left|#1\right|}\xspace}
+\newcommand{\bmat}[1]{\ensuremath{\begin{bmatrix}#1\end{bmatrix}}\xspace} 
+\newcommand{\Bmat}[1]{\ensuremath{\begin{Bmatrix}#1\end{Bmatrix}}\xspace} 
+\newcommand{\vmat}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}\xspace}
+\newcommand{\Vmat}[1]{\ensuremath{\begin{Vmatrix}#1\end{Vmatrix}}\xspace} 
+\newcommand{\pmat}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}\xspace}
+\renewcommand{\multirowsetup}{\centering} %合併表格後, 內容水平且垂直置中
+%\renewcommand\arraystretch{1.8}%調整表格內行高
+\newlength{\iconwidth} %定义ico标识的宽度
+\setlength{\iconwidth}{1cm} %宽度赋值
+\definecolor{boxheadcol}{gray}{.9} %定义所需的颜色，需要xcolor支持。
+\definecolor{boxcol}{gray}{.5} %同上
+\setlength\cellspacetoplimit{3pt}
+\setlength\cellspacebottomlimit{3pt}
+\setcellgapes{3pt}
+
+%選擇題
+\newcommand{\fourch}[4]{%~\hfill(\qquad)\\
+\begin{tabular}{*{4}{@{}p{0.25\textwidth}}}(A)~#1 & (B)~#2 & (C)~#3 & (D)~#4\end{tabular}}
+\newcommand{\twoch}[4]{%~\hfill(\qquad)\\
+\begin{tabular}{*{2}{@{}p{0.5\textwidth}}}(A)~#1 & (B)~#2\end{tabular}\\\begin{tabular}{*{2}{@{}p{0.5\textwidth}}}(C)~#3 & (D)~#4\end{tabular}}
+\newcommand{\onech}[4]{%~\hfill(\qquad)\\
+(A)~#1 \\ (B)~#2 \\ (C)~#3 \\ (D)~#4}
+\newlength\widthcha
+\newlength\widthchb
+\newlength\widthchc
+\newlength\widthchd
+\newlength\widthch
+\newlength\tabmaxwidth
+\setlength\tabmaxwidth{1\textwidth}
+\newlength\fourthtabwidth
+\setlength\fourthtabwidth{0.25\textwidth}
+\newlength\halftabwidth
+\setlength\halftabwidth{0.5\textwidth}
+
+\newcommand{\choice}[4]{\settowidth\widthcha{AM.#1}\setlength{\widthch}{\widthcha}
+    \settowidth\widthchb{BM.#2}
+    \ifthenelse{\widthch<\widthchb}{\setlength{\widthch}{\widthchb}}{}
+    \settowidth\widthchb{CM.#3}
+    \ifthenelse{\widthch<\widthchb}{\setlength{\widthch}{\widthchb}}{}
+    \settowidth\widthchb{DM.#4}
+    \ifthenelse{\widthch<\widthchb}{\setlength{\widthch}{\widthchb}}{}
+    \ifthenelse{\widthch<\fourthtabwidth}{\fourch{#1}{#2}{#3}{#4}}
+    {\ifthenelse{\widthch<\halftabwidth\and\widthch>\fourthtabwidth}{\twoch{#1}{#2}{#3}{#4}}
+        {\onech{#1}{#2}{#3}{#4}}}}
+
+\everymath{\displaystyle} %所有數學模式都用展式數學模式
+%填充題
+%有計數的填充
+%\newcounter{blanknumbering} % running number for filling blank 
+%\def\blank{\addtocounter{blanknumbering}{1}
+%\ensuremath{\underline{\hspace*{.5cm}\textcircled{\theblanknumbering}\hspace*{.5cm}}}}
+
+%填充題
+\def\blank{\ensuremath{\underline{\hspace*{1cm}}}}
+
+%短除法
+\newcounter{divline}
+\def\rlwd{.5pt} \def\rlht{\dimexpr\dp\strutbox+\ht\strutbox} \def\rldp{.75ex}
+\newcommand\mydiv[3][\relax]{%
+  \ifx\relax#1\stepcounter{divline}\else\setcounter{divline}{#1}\fi%
+  \mbox{}\hspace{\thedivline\dimexpr1ex}#2~\setbox0=\hbox{~$#3$}%
+  \dumbstackengine{-\rlwd}{\rule[-\rldp]{\rlwd}{\rlht}~#3}{\rule{\dimexpr4pt+\wd0}{\rlwd}}%
+}
+\def\remainder#1{\stepcounter{divline}%
+  \mbox{}\hspace{\dimexpr1ex+\thedivline\dimexpr1ex}~#1\setcounter{divline}{0}}
+\makeatletter
+\global\newlength\@stackedboxwidth
+\newlength\@boxshift
+\newsavebox\@addedbox
+\newsavebox\@anchorbox
+\newcommand*\dumbstackengine[3]{%
+    \sbox{\@anchorbox}{$#2$}%
+    \sbox{\@addedbox}{$#3$}%
+    \setlength{\@stackedboxwidth}{\wd\@anchorbox}%
+      \ifdim\wd\@addedbox>\@stackedboxwidth%
+        \setlength{\@stackedboxwidth}{\wd\@addedbox}%
+      \fi%
+        \setlength{\@boxshift}{\dimexpr-\dp\@anchorbox -\ht\@addedbox -#1}%
+        \usebox{\@anchorbox}%
+        \hspace{-\wd\@anchorbox}%
+        \raisebox{\@boxshift}{\usebox{\@addedbox}}%
+        \hspace{-\wd\@addedbox}%
+        \hspace{\@stackedboxwidth}%
+}
+
+\newtcbtheorem{question}{範例}%
+  {enhanced, breakable,
+    colback = white, colframe = cyan, colbacktitle = cyan,
+    attach boxed title to top left = {yshift = -2mm, xshift = 5mm},
+    boxed title style = {sharp corners},
+    fonttitle = \sffamily\bfseries, separator sign = {~}}{qst}
+
+% 直線表示
+%\def\shrinkage{-2.4mu}
+%\def\vecsign#1{\rule[1.388\LMex]{\dimexpr#1-2.5pt}{.36\LMpt}%
+%  \kern-6.0\LMpt\mathchar"017E}
+%\def\dvecsign#1{\rule{0pt}{7\LMpt}\smash{\stackon[-1.989\LMpt]{%
+%  \SavedStyle\mkern-\shrinkage\vecsign{#1}}%
+%  {\rotatebox{180}{$\SavedStyle\mkern-\shrinkage\vecsign{#1}$}}}}
+%\def\dvec#1{\ThisStyle{\setbox0=\hbox{$\SavedStyle#1$}%
+%  \def\useanchorwidth{T}\stackon[-4.2\LMpt]{\SavedStyle#1}{\,\dvecsign{\wd0}}}}
+%\stackMath
